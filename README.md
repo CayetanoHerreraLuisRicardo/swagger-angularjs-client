@@ -12,7 +12,7 @@ ANTES DE EMPEZAR TIENES QUE TENER INSTALADO nodejs Y npm
 ![result firebug](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/2.png)
 
 #### 4.- CREA TU ARCHIVO .js EN MI CASO LLAMADO CON LAS SIGUIENTES LINEAS DE CODIGO =>
-```
+```javascript
 ////////INICIO//////////
 //móndulo para manipulacion de archivos
 var fs = require('fs');
