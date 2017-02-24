@@ -12,7 +12,7 @@ ANTES DE EMPEZAR TIENES QUE TENER INSTALADO nodejs Y npm
 ![result firebug](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/2.png)
 
 #### 4.- CREA TU ARCHIVO .js EN MI CASO LLAMADO CON LAS SIGUIENTES LINEAS DE CODIGO =>
-
+```
 ////////INICIO//////////
 //móndulo para manipulacion de archivos
 var fs = require('fs');
@@ -54,7 +54,7 @@ function generaAngularJS(file,client){
 }
 generaAngularJS(dirAjs,angularjsSourceCode);
 ////////FIN//////////
-
+```
 PARA MI EJEMPLO LLAMADO app.js
 
 #### 5.- UNA VEZ CREADA LA DOCUMENTACIÓN DE TU API DESDE EL EDITOR DEL SWAGGER, LO DESCARGAMOS EN FORMATO JSON.
