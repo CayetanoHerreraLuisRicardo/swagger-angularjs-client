@@ -67,6 +67,6 @@ PARA MI EJEMPLO LLAMADO app.js
 
 #### 7.- LISTO SE GENERÓ NUESTRO CLIENTE PARA ANGULARJS
 
-![code-angular](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/4.png)
+![code-angular](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/4.PNG)
 
-![file-js-angular](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/5.png)
+![file-js-angular](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/5.PNG)
