@@ -1,17 +1,17 @@
-### swagger-angularjs-client
-##Example swagger client for angular (using nodejs)
+## swagger-angularjs-client
+###Example swagger client for angular (using nodejs)
 
 ANTES DE EMPEZAR TIENES QUE TENER INSTALADO nodejs Y npm
 
-1.- ENTRAR A => http://editor.swagger.io/#!/
+#### 1.- ENTRAR A => http://editor.swagger.io/#!/
 
-2.- CREA LA DOCUMENTACION DE TU API EN EL EDITOR DE SWAGGER, LOS FORMATOS QUE MANEJA SWAGGER SON => YAML Y JSON
+#### 2.- CREA LA DOCUMENTACION DE TU API EN EL EDITOR DE SWAGGER, LOS FORMATOS QUE MANEJA SWAGGER SON => YAML Y JSON
 
-3.- CREA LA CARPETA DEL PROYECTO E INSTALA swagger-js-codegen => npm install swagger-js-codegen
+#### 3.- CREA LA CARPETA DEL PROYECTO E INSTALA swagger-js-codegen => npm install swagger-js-codegen
 
 ![result firebug](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/2.png)
 
-4.- CREA TU ARCHIVO .js EN MI CASO LLAMADO CON LAS SIGUIENTES LINEAS DE CODIGO =>
+#### 4.- CREA TU ARCHIVO .js EN MI CASO LLAMADO CON LAS SIGUIENTES LINEAS DE CODIGO =>
 
 ////////INICIO//////////
 //móndulo para manipulacion de archivos
@@ -57,15 +57,15 @@ generaAngularJS(dirAjs,angularjsSourceCode);
 
 PARA MI EJEMPLO LLAMADO app.js
 
-5.- UNA VEZ CREADA LA DOCUMENTACIÓN DE TU API DESDE EL EDITOR DEL SWAGGER, LO DESCARGAMOS EN FORMATO JSON.
+#### 5.- UNA VEZ CREADA LA DOCUMENTACIÓN DE TU API DESDE EL EDITOR DEL SWAGGER, LO DESCARGAMOS EN FORMATO JSON.
 
 ![download in json format](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/1.png)
 
-6.- EJECUTAMOS EL SIGUIENTE COMANDO => node app
+#### 6.- EJECUTAMOS EL SIGUIENTE COMANDO => node app
 
 ![command](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/3.png)
 
-7.- LISTO SE GENERÓ NUESTRO CLIENTE PARA ANGULARJS
+#### 7.- LISTO SE GENERÓ NUESTRO CLIENTE PARA ANGULARJS
 
 ![client generated](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/5.png)
 
