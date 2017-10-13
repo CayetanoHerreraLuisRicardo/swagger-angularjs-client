@@ -1,5 +1,5 @@
 /*jshint -W069 */
-/*global angular:false */
+/*global angular:false, btoa */
 angular.module('', [])
     .factory('clientSwagger', ['$q', '$http', '$rootScope', function($q, $http, $rootScope) {
         'use strict';
@@ -24,6 +24,30 @@ angular.module('', [])
                 this.cache = cache;
             }
 
+            function mergeQueryParams(parameters, queryParameters) {
+                if (parameters.$queryParameters) {
+                    Object.keys(parameters.$queryParameters)
+                        .forEach(function(parameterName) {
+                            var parameter = parameters.$queryParameters[parameterName];
+                            queryParameters[parameterName] = parameter;
+                        });
+                }
+                return queryParameters;
+            }
+
+            /**
+             * HTTP Request
+             * @method
+             * @name clientSwagger#request
+             * @param {string} method - http method
+             * @param {string} url - url to do request
+             * @param {object} parameters
+             * @param {object} body - body parameters / object
+             * @param {object} headers - header parameters
+             * @param {object} queryParameters - querystring parameters
+             * @param {object} form - form data object
+             * @param {object} deferred - promise object
+             */
             clientSwagger.prototype.request = function(method, url, parameters, body, headers, queryParameters, form, deferred) {
                 var options = {
                     timeout: parameters.$timeout,
@@ -94,23 +118,23 @@ angular.module('', [])
 
              * @method
              * @name clientSwagger#getProducts
-             * @param {number} latitude - Latitude component of location.
-             * @param {number} longitude - Longitude component of location.
-             * 
+             * @param {object} parameters - method options and parameters
+                 * @param {number} parameters.latitude - Latitude component of location.
+                 * @param {number} parameters.longitude - Longitude component of location.
              */
             clientSwagger.prototype.getProducts = function(parameters) {
                 if (parameters === undefined) {
                     parameters = {};
                 }
                 var deferred = $q.defer();
+                var domain = this.domain,
+                    path = '/products';
+                var body = {},
+                    queryParameters = {},
+                    headers = {},
+                    form = {};
 
-                var domain = this.domain;
-                var path = '/products';
-
-                var body;
-                var queryParameters = {};
-                var headers = {};
-                var form = {};
+                headers['Accept'] = ['application/json'];
 
                 if (parameters['latitude'] !== undefined) {
                     queryParameters['latitude'] = parameters['latitude'];
@@ -130,13 +154,7 @@ angular.module('', [])
                     return deferred.promise;
                 }
 
-                if (parameters.$queryParameters) {
-                    Object.keys(parameters.$queryParameters)
-                        .forEach(function(parameterName) {
-                            var parameter = parameters.$queryParameters[parameterName];
-                            queryParameters[parameterName] = parameter;
-                        });
-                }
+                queryParameters = mergeQueryParams(parameters, queryParameters);
 
                 this.request('GET', domain + path, parameters, body, headers, queryParameters, form, deferred);
 
@@ -154,25 +172,25 @@ angular.module('', [])
 
              * @method
              * @name clientSwagger#getEstimatesPrice
-             * @param {number} startLatitude - Latitude component of start location.
-             * @param {number} startLongitude - Longitude component of start location.
-             * @param {number} endLatitude - Latitude component of end location.
-             * @param {number} endLongitude - Longitude component of end location.
-             * 
+             * @param {object} parameters - method options and parameters
+                 * @param {number} parameters.startLatitude - Latitude component of start location.
+                 * @param {number} parameters.startLongitude - Longitude component of start location.
+                 * @param {number} parameters.endLatitude - Latitude component of end location.
+                 * @param {number} parameters.endLongitude - Longitude component of end location.
              */
             clientSwagger.prototype.getEstimatesPrice = function(parameters) {
                 if (parameters === undefined) {
                     parameters = {};
                 }
                 var deferred = $q.defer();
+                var domain = this.domain,
+                    path = '/estimates/price';
+                var body = {},
+                    queryParameters = {},
+                    headers = {},
+                    form = {};
 
-                var domain = this.domain;
-                var path = '/estimates/price';
-
-                var body;
-                var queryParameters = {};
-                var headers = {};
-                var form = {};
+                headers['Accept'] = ['application/json'];
 
                 if (parameters['startLatitude'] !== undefined) {
                     queryParameters['start_latitude'] = parameters['startLatitude'];
@@ -210,13 +228,7 @@ angular.module('', [])
                     return deferred.promise;
                 }
 
-                if (parameters.$queryParameters) {
-                    Object.keys(parameters.$queryParameters)
-                        .forEach(function(parameterName) {
-                            var parameter = parameters.$queryParameters[parameterName];
-                            queryParameters[parameterName] = parameter;
-                        });
-                }
+                queryParameters = mergeQueryParams(parameters, queryParameters);
 
                 this.request('GET', domain + path, parameters, body, headers, queryParameters, form, deferred);
 
@@ -226,25 +238,25 @@ angular.module('', [])
              * The Time Estimates endpoint returns ETAs for all products offered at a given location, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate, up-to-date ETAs.
              * @method
              * @name clientSwagger#getEstimatesTime
-             * @param {number} startLatitude - Latitude component of start location.
-             * @param {number} startLongitude - Longitude component of start location.
-             * @param {string} customerUuid - Unique customer identifier to be used for experience customization.
-             * @param {string} productId - Unique identifier representing a specific product for a given latitude & longitude.
-             * 
+             * @param {object} parameters - method options and parameters
+             * @param {number} parameters.startLatitude - Latitude component of start location.
+             * @param {number} parameters.startLongitude - Longitude component of start location.
+             * @param {string} parameters.customerUuid - Unique customer identifier to be used for experience customization.
+             * @param {string} parameters.productId - Unique identifier representing a specific product for a given latitude & longitude.
              */
             clientSwagger.prototype.getEstimatesTime = function(parameters) {
                 if (parameters === undefined) {
                     parameters = {};
                 }
                 var deferred = $q.defer();
+                var domain = this.domain,
+                    path = '/estimates/time';
+                var body = {},
+                    queryParameters = {},
+                    headers = {},
+                    form = {};
 
-                var domain = this.domain;
-                var path = '/estimates/time';
-
-                var body;
-                var queryParameters = {};
-                var headers = {};
-                var form = {};
+                headers['Accept'] = ['application/json'];
 
                 if (parameters['startLatitude'] !== undefined) {
                     queryParameters['start_latitude'] = parameters['startLatitude'];
@@ -272,13 +284,7 @@ angular.module('', [])
                     queryParameters['product_id'] = parameters['productId'];
                 }
 
-                if (parameters.$queryParameters) {
-                    Object.keys(parameters.$queryParameters)
-                        .forEach(function(parameterName) {
-                            var parameter = parameters.$queryParameters[parameterName];
-                            queryParameters[parameterName] = parameter;
-                        });
-                }
+                queryParameters = mergeQueryParams(parameters, queryParameters);
 
                 this.request('GET', domain + path, parameters, body, headers, queryParameters, form, deferred);
 
@@ -288,29 +294,23 @@ angular.module('', [])
              * The User Profile endpoint returns information about the Uber user that has authorized with the application.
              * @method
              * @name clientSwagger#getMe
-             * 
+             * @param {object} parameters - method options and parameters
              */
             clientSwagger.prototype.getMe = function(parameters) {
                 if (parameters === undefined) {
                     parameters = {};
                 }
                 var deferred = $q.defer();
+                var domain = this.domain,
+                    path = '/me';
+                var body = {},
+                    queryParameters = {},
+                    headers = {},
+                    form = {};
 
-                var domain = this.domain;
-                var path = '/me';
+                headers['Accept'] = ['application/json'];
 
-                var body;
-                var queryParameters = {};
-                var headers = {};
-                var form = {};
-
-                if (parameters.$queryParameters) {
-                    Object.keys(parameters.$queryParameters)
-                        .forEach(function(parameterName) {
-                            var parameter = parameters.$queryParameters[parameterName];
-                            queryParameters[parameterName] = parameter;
-                        });
-                }
+                queryParameters = mergeQueryParams(parameters, queryParameters);
 
                 this.request('GET', domain + path, parameters, body, headers, queryParameters, form, deferred);
 
@@ -320,23 +320,23 @@ angular.module('', [])
              * The User Activity endpoint returns data about a user's lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.<br><br>The history array in the response will have a maximum length based on the limit parameter. The response value count may exceed limit, therefore subsequent API requests may be necessary.
              * @method
              * @name clientSwagger#getHistory
-             * @param {integer} offset - Offset the list of returned results by this amount. Default is zero.
-             * @param {integer} limit - Number of items to retrieve. Default is 5, maximum is 100.
-             * 
+             * @param {object} parameters - method options and parameters
+             * @param {integer} parameters.offset - Offset the list of returned results by this amount. Default is zero.
+             * @param {integer} parameters.limit - Number of items to retrieve. Default is 5, maximum is 100.
              */
             clientSwagger.prototype.getHistory = function(parameters) {
                 if (parameters === undefined) {
                     parameters = {};
                 }
                 var deferred = $q.defer();
+                var domain = this.domain,
+                    path = '/history';
+                var body = {},
+                    queryParameters = {},
+                    headers = {},
+                    form = {};
 
-                var domain = this.domain;
-                var path = '/history';
-
-                var body;
-                var queryParameters = {};
-                var headers = {};
-                var form = {};
+                headers['Accept'] = ['application/json'];
 
                 if (parameters['offset'] !== undefined) {
                     queryParameters['offset'] = parameters['offset'];
@@ -346,13 +346,7 @@ angular.module('', [])
                     queryParameters['limit'] = parameters['limit'];
                 }
 
-                if (parameters.$queryParameters) {
-                    Object.keys(parameters.$queryParameters)
-                        .forEach(function(parameterName) {
-                            var parameter = parameters.$queryParameters[parameterName];
-                            queryParameters[parameterName] = parameter;
-                        });
-                }
+                queryParameters = mergeQueryParams(parameters, queryParameters);
 
                 this.request('GET', domain + path, parameters, body, headers, queryParameters, form, deferred);
 

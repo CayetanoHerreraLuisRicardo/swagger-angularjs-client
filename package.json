@@ -1,0 +1,22 @@
+{
+  "name": "swagger-angularjs-client",
+  "version": "1.0.0",
+  "description": "Example: generate AngularJS 1.x services from swagger.json",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client.git"
+  },
+  "author": "Ricardo Cayetano Herrera <https://about.me/richy_92>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/issues"
+  },
+  "homepage": "https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client#readme",
+  "dependencies": {
+    "swagger-js-codegen": "^1.11.2"
+  }
+}
