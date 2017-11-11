@@ -1,6 +1,6 @@
 //móndulo para manipulación de archivos
 var fs = require('fs');
-//móndulo para generar el cliente js
+//módulo para generar el cliente js
 var CodeGen = require('swagger-js-codegen').CodeGen;
 //https://github.com/wcandillon/swagger-js-codegen
 
