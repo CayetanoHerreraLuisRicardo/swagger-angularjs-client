@@ -7,11 +7,12 @@ ANTES DE EMPEZAR TIENES QUE TENER INSTALADO nodejs Y npm
 
 #### 2.- CREA LA DOCUMENTACION DE TU API EN EL EDITOR DE SWAGGER (para documentar tu API apoyate de la especificación 'OpenAPI Specification'  https://swagger.io/specification y de este ejemplo https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v2.0/yaml/uber.yaml), LOS FORMATOS QUE MANEJA SWAGGER SON 'YAML' Y 'JSON'
 
-#### 3.- EN LA CARPETA DEL PROYECTO (AÚN VACIA) EJECUTA 'npm init -y' E INSTALA swagger-js-codegen 'npm install swagger-js-codegen --save'
+#### 3.- EN LA CARPETA DEL PROYECTO (AÚN VACIA) EJECUTA 'npm init -y' E INSTALA LA DEPENDENCIA swagger-js-codegen 'npm install swagger-js-codegen --save' QUIEN NOS AYUDARÁ A GENERAR NUESTRO CLIENTE (para mas info 'https://github.com/wcandillon/swagger-js-codegen')
 
 ![result firebug](https://github.com/CayetanoHerreraLuisRicardo/swagger-angularjs-client/blob/master/screenshot/2.png)
 
-#### 4.- CREA TU ARCHIVO .js EN MI CASO LLAMADO "app.js" CON LAS SIGUIENTES LINEAS DE CODIGO =>
+#### 4.- CREA TU ARCHIVO .js EN MI CASO LLAMADO "app.js" CON LAS SIGUIENTES LINEAS DE CÓDIGO
+
 ```javascript
 ////////INICIO//////////
 //módulo para manipulación de archivos
@@ -55,7 +56,6 @@ function generaAngularJS(file,client){
 generaAngularJS(dirAjs,angularjsSourceCode);
 ////////FIN//////////
 ```
-PARA MI EJEMPLO LLAMADO app.js
 
 #### 5.- UNA VEZ CREADA LA DOCUMENTACIÓN DE TU API DESDE EL EDITOR DEL SWAGGER, LO DESCARGAMOS EN FORMATO JSON, CREAMOS UNA CARPETA EN MI CASO 'swagger' Y PEGAMOS EL ARCHIVOS JSON Y LE PONES EL NOMBRE QUE GUSTES EN MI CASO 'swaggerUber.json' 
 
